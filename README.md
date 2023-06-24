@@ -66,3 +66,70 @@ Copy code
 ## 結語
 
 透過這個專案，我們希望能讓學習英語的過程更加順暢和高效。如果您有任何問題或建議，歡迎與我們聯繫。感謝您的關注和支持！
+
+
+#   Vocabulary Database
+
+## Introduction
+
+Throughout my English learning journey, Notion has been my reliable assistant, where I keep track of new vocabulary and take notes. After adopting some recommendations, I started using the Cambridge English Dictionary website to look up unfamiliar words and organize them in my Notion vocabulary database. However, this method proved to be quite cumbersome. Firstly, it involved opening multiple websites. Secondly, I had to manually create new pages, enter the words, and then organize them in Notion. Therefore, when I learned about the release of Notion's API system, I decided to develop a project that automates these tedious steps, aiming to create a database for English vocabulary notes, which can also be integrated with other note sources.
+
+## Problem to Solve
+
+During the development of this project, we encountered some challenges that needed to be addressed:
+
+1. How to use the Notion API?
+2. What would be the best approach to implement this project: a web server, a browser extension, or an application?
+3. How to design a web scraper to fetch word data from vocabulary websites (as using website APIs would be costly)?
+
+## Project Overview
+
+"vocabulary_database" is a project built using Python and Django framework, with the following main functionalities:
+
+1. Utilize Selenium web scraper to automatically retrieve detailed information for specified words from the Cambridge English Dictionary website. This includes English definitions, Chinese translations, and related example sentences.
+    
+2. Automatically store the retrieved word information in Notion pages. Specifically, this feature allows users to add specified words, their definitions, translations, and example sentences to a Notion page.
+    
+3. Use Django models to organize and store word information. Specifically, there is a "Word" model for storing English words and their corresponding Chinese translations.
+    
+
+## Installation
+
+To run this project, you need to install the necessary Python packages, including:
+
+- Django==4.2.2 # Server
+- beautifulsoup4==4.12.2 # Web scraper
+- django-cors-headers==4.1.0 # Cross-origin request support
+- requests==2.31.0 # Web scraper
+- selenium==4.10.0 # Web scraper
+- notion-client==2.0.0 # Notion API integration
+
+You can install these packages by running the following command:
+
+`pip install -r requirements.txt`
+
+## Usage
+
+To be updated by the author...
+
+## Project Structure
+
+This project is primarily divided into two parts: "vocabulary" and "cambridge."
+
+- "vocabulary": This directory contains the Django project configuration files, such as settings.py, urls.py, etc.
+    
+- "cambridge": This directory contains the code related to fetching word data from the Cambridge website and storing it in the Notion database, including models.py, views.py, etc.
+    
+
+## Future Plans
+
+We will continue to improve and expand this project to provide more features and a better user experience. Specific plans include:
+
+1. Optimizing the efficiency and accuracy of word fetching.
+2. Providing additional word sources beyond the Cambridge website.
+3. Optimizing for spelling mistakes.
+4. Improving the efficiency and accuracy of Notion data storage.
+
+## Conclusion
+
+Through this project, we aim to make the process of learning English smoother and more efficient. If you have any questions or suggestions, please feel free to contact us. Thank you for your attention and support!
