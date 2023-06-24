@@ -1,0 +1,37 @@
+{% extends 'cambridge/index.html' %}
+{% block content1 %}
+<div class="container mt-5 text-center">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>請搜尋自己想要的搜尋的英文單字</h1>
+        <p>搜尋自己想要的英文單字，並自動在notion上面新增此單字的相關連結</p>
+      </div>
+    </div>
+    <!-- Search bar -->
+    <form class="form-inline d-flex justify-content-center mt-3" method="post">
+        {% csrf_token %}
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_query" value="{{ keyword }}">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="save_note" value="True">儲存筆記</button>
+    </form>
+    <!-- Search bar end -->
+    <div class="row">
+        <div class="container mt-5">
+            {% for definition in word_info %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ definition.definition }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ definition.translation }}</h6>
+                        {% for example in definition.examples %}
+                            <p class="card-text">
+                                <strong>Example:</strong> {{ example.0 }}<br>
+                                <strong>Translation:</strong> {{ example.1 }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+  {% endblock %}
