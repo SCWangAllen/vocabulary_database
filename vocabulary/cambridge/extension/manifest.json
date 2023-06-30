@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "My Extension",
+    "name": "My Extension for notion vocabulary",
     "version": "1.0",
     "permissions": ["contextMenus","tabs", "notifications"],
     "background": {

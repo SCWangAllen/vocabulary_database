@@ -52,6 +52,9 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",# CORS
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_HEADERS = "*"
+
 ROOT_URLCONF = 'vocabulary.urls'
 
 TEMPLATES = [

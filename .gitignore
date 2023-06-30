@@ -1,3 +1,5 @@
 ./voculary_env
 ./test.ipynb
 .DS_Store
+.pem
+.crx

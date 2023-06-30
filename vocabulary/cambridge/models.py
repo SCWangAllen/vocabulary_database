@@ -32,10 +32,19 @@ class Word(models.Model):
 
 
 def get_word_info(word) -> dict:
+    """_summary_
+        This is a function to get the word's definition, translation and examples from cambridge dictionary, and return a dict.
+        Use selenium to get the data we need .
+    Args:
+        word (_type_): _description_
+
+    Returns:
+        dict: _description_
+    """
     word=word.lower()
     chrome_options = Options()
     chrome_options.add_argument("--headless")
-    # './chromedriver' 是你的driver的路徑
+
     driver = webdriver.Chrome(options=chrome_options)
 
     url = 'https://dictionary.cambridge.org/zht/'
@@ -85,6 +94,7 @@ def get_word_info(word) -> dict:
         })
 
     driver.quit()
+    print(word_element)
     return {'definition':definitions,'word':word_element}
 
 
@@ -201,12 +211,9 @@ def insert_to_notion(word_info, title: str = '', tag: str = "work",url: str='htt
             blocks.append(chinese_example_text)
     if len(blocks)>100:
         blocks=blocks[:100]
-    # selected_icon =random.choice(icons)
     if is_valid_url(url):
         url_for_link=url
-        print(True)
     else:
-        print(False)
         url_for_link='http://example.com'
     page = notion.pages.create(
         parent={"database_id": '9ed5b492835e40eb93cc72d38edc3fc7'},

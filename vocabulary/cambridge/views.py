@@ -74,9 +74,7 @@ def for_extension(request):
             info = [{'definition': '無效的單詞', 'translation': '無效的單詞', 'examples': []}]
             return JsonResponse({'status': 'not a valid word'})
     try:
-        print('start')
         info=get_word_info(text)
-        # insert_to_notion(word_info=info,title=text,url=url)
         filter_or_insert(keyword=text,url=url,word_info=info.get('definition'),title=info.get('word'))
         return JsonResponse({'status': 'Update Sucess'})
     except  :

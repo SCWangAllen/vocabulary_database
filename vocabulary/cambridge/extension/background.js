@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(function() {
   chrome.contextMenus.create({
       id: "sampleContextMenu",
-      title: "Sample Context Menu",
+      title: "Save to Notion Database",
       contexts: ["selection"]
   });
 });
